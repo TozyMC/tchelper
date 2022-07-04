@@ -10,10 +10,10 @@ subprojects {
     apply(plugin = "java-library")
 
     dependencies {
-        compileOnlyApi(libs.jetbrains.annotations)
+        compileOnlyApi(rootProject.libs.jetbrains.annotations)
 
-        api(libs.guava)
-        api(libs.slf4j)
+        api(rootProject.libs.guava)
+        api(rootProject.libs.slf4j)
     }
 
     val targetJavaVersion = 17
