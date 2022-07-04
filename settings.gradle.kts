@@ -7,4 +7,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "tchelper"
+rootProject.name = "tchelper-parent"
