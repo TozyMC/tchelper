@@ -1,0 +1,11 @@
+[versions]
+guava = "31.1-jre"
+slf4j = "1.7.36"
+
+[libraries]
+# utilities
+jetbrains-annotations = "org.jetbrains:annotations:23.0.0"
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+
+# logger
+slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
