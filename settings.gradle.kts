@@ -8,3 +8,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "tchelper-parent"
+
+sequenceOf("path").forEach {
+    val subProjectName = "tchelper-$it"
+    include(subProjectName)
+    project(":$subProjectName").projectDir = file(it)
+}
