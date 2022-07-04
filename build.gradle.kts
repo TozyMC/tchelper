@@ -1,5 +1,5 @@
 plugins {
-    id("java")
+    id("java-library")
 }
 
 group = "com.github.tozymc"
@@ -7,9 +7,13 @@ version = "0.0.1-SNAPSHOT"
 
 
 subprojects {
-    apply(plugin = "java-libary")
+    apply(plugin = "java-library")
 
     dependencies {
+        compileOnlyApi(libs.jetbrains.annotations)
+
+        api(libs.guava)
+        api(libs.slf4j)
     }
 
     val targetJavaVersion = 17
