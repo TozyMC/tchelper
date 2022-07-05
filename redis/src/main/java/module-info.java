@@ -3,6 +3,9 @@ module tchelper.redis {
 
   requires transitive tchelper.path;
 
+  requires org.slf4j;
+  requires com.google.common;
+
   requires redisson;
 
   exports com.github.tozymc.tchelper.redis;
