@@ -1,5 +1,6 @@
 plugins {
     `java-platform`
+    id("tchelper.description-conventions")
     id("tchelper.publishing-conventions")
 }
 
