@@ -8,7 +8,6 @@ hibernate = "6.1.1.Final"
 adventure = "4.11.0"
 
 moduleplugin = "1.8.11"
-jetsign = "45.58"
 
 [bundles]
 configurate = ["configurate-core", "configurate-yaml", "configurate-gson"]
@@ -53,4 +52,3 @@ adventure-text-serializer-legacy = { module = "net.kyori:adventure-text-serializ
 
 # build process
 build-module = { module = "org.javamodularity:moduleplugin", version.ref = "moduleplugin" }
-build-jetsign = { module = "com.jetbrains:jet-sign", version.ref = "jetsign" }
