@@ -4,9 +4,11 @@ slf4j = "1.7.36"
 configurate = "4.1.2"
 redisson = "3.17.4"
 kryo = "5.3.0"
+hibernate = "6.1.1.Final"
 
 [bundles]
 configurate = ["configurate-core", "configurate-yaml", "configurate-gson"]
+hibernate = ["hibernate-core", "hibernate-hikaricp"]
 
 [libraries]
 # utilities
@@ -26,3 +28,8 @@ redisson = { module = "org.redisson:redisson", version.ref = "redisson" }
 
 # kryo serialize
 kryo5 = { module = "com.esotericsoftware.kryo:kryo5", version.ref = "kryo" }
+
+# orm
+hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
+hibernate-hikaricp = { module = "org.hibernate.orm:hibernate-hikaricp", version.ref = "hibernate" }
+
