@@ -1,5 +1,6 @@
 dependencies {
-    api(projects.tchelperPath)
+    compileOnlyApi(libs.bundles.adventure)
 
+    api(projects.tchelperPath)
     api(libs.bundles.hibernate)
 }
