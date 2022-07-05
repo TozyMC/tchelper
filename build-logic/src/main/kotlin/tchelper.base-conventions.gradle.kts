@@ -3,13 +3,6 @@ plugins {
     id("org.javamodularity.moduleplugin")
 }
 
-val projectVersion: String by rootProject
-val projectDescription: String by rootProject
-
-group = "com.github.tozymc"
-version = projectVersion
-description = projectDescription
-
 // expose version catalog
 val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
 
@@ -38,5 +31,5 @@ tasks.withType<JavaCompile>().configureEach {
 }
 
 configure<org.javamodularity.moduleplugin.extensions.ModularityExtension> {
-    moduleVersion(projectVersion)
+    moduleVersion(project.version.toString())
 }
