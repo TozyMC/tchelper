@@ -1,4 +1,6 @@
 dependencies {
+    api(projects.tchelperPath)
     api(libs.redisson)
-    api(libs.kryo)
+
+    runtimeOnly(libs.kryo5)
 }

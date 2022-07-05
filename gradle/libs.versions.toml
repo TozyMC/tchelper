@@ -25,4 +25,4 @@ configurate-gson = { module = "org.spongepowered:configurate-gson", version.ref 
 redisson = { module = "org.redisson:redisson", version.ref = "redisson" }
 
 # kryo serialize
-kryo = { module = "com.esotericsoftware.kryo:kryo", version.ref = "kryo" }
+kryo5 = { module = "com.esotericsoftware.kryo:kryo5", version.ref = "kryo" }
