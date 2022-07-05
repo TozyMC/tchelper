@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "tchelper-parent"
 
-sequenceOf("path", "config", "redis", "sql").forEach {
+sequenceOf("bom", "path", "config", "redis", "sql").forEach {
     val subProjectName = "tchelper-$it"
     include(subProjectName)
     project(":$subProjectName").projectDir = file(it)
