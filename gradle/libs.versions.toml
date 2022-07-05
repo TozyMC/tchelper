@@ -2,6 +2,8 @@
 guava = "31.1-jre"
 slf4j = "1.7.36"
 configurate = "4.1.2"
+redisson = "3.17.4"
+kryo = "5.3.0"
 
 [bundles]
 configurate = ["configurate-core", "configurate-yaml", "configurate-gson"]
@@ -18,3 +20,9 @@ slf4j = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 configurate-core = { module = "org.spongepowered:configurate-core", version.ref = "configurate" }
 configurate-yaml = { module = "org.spongepowered:configurate-yaml", version.ref = "configurate" }
 configurate-gson = { module = "org.spongepowered:configurate-gson", version.ref = "configurate" }
+
+# redis
+redisson = { module = "org.redisson:redisson", version.ref = "redisson" }
+
+# kryo serialize
+kryo = { module = "com.esotericsoftware.kryo:kryo", version.ref = "kryo" }
