@@ -7,6 +7,8 @@ signing {
     sign(publishing.publications)
 }
 
+fun String.capitalizeWords(): String = split("-").joinToString(" ") { it.capitalize() }
+
 publishing {
     repositories {
         maven {
@@ -20,9 +22,25 @@ publishing {
         }
     }
     publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
+        create<MavenPublication>("gpr") {
+            // configure for libraries
+            pluginManager.withPlugin("java") {
+                from(components["java"])
+            }
+            // configure for BOM
+            pluginManager.withPlugin("java-platform") {
+                from(components["javaPlatform"])
+            }
+
             pom {
+                groupId = project.group.toString()
+                artifactId = project.name
+                version = project.version.toString()
+
+                name.set(project.name.capitalizeWords())
+                description.set(project.description)
+                url.set("https://github.com/TozyMC/tchelper/")
+
                 licenses {
                     license {
                         name.set("MIT license")
