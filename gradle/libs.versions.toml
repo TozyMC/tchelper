@@ -7,6 +7,8 @@ kryo = "5.3.0"
 hibernate = "6.1.1.Final"
 adventure = "4.11.0"
 
+moduleplugin = "1.8.11"
+
 [bundles]
 configurate = ["configurate-core", "configurate-yaml", "configurate-gson"]
 hibernate = ["hibernate-core", "hibernate-hikaricp"]
@@ -47,3 +49,6 @@ adventure-text-minimessage = { module = "net.kyori:adventure-text-minimessage", 
 adventure-text-serializer-gson = { module = "net.kyori:adventure-text-serializer-gson", version.ref = "adventure" }
 adventure-text-serializer-plain = { module = "net.kyori:adventure-text-serializer-plain", version.ref = "adventure" }
 adventure-text-serializer-legacy = { module = "net.kyori:adventure-text-serializer-legacy", version.ref = "adventure" }
+
+# build process
+build-module = { module = "org.javamodularity:moduleplugin", version.ref = "moduleplugin" }
