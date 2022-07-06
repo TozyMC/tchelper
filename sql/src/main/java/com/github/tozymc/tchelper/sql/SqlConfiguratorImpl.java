@@ -6,6 +6,7 @@ import com.github.tozymc.tchelper.path.ConfigPath;
 import java.util.function.Consumer;
 import org.hibernate.boot.MetadataBuilder;
 import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.SessionFactoryBuilder;
 import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +19,7 @@ final class SqlConfiguratorImpl implements SqlConfigurator {
   private Consumer<StandardServiceRegistryBuilder> standardServiceRegistryConfigurator;
   private Consumer<MetadataSources> metadataSourcesConfigurator;
   private Consumer<MetadataBuilder> metadataConfigurator;
+  private Consumer<SessionFactoryBuilder> sessionFactoryConfigurator;
 
   SqlConfiguratorImpl() {}
 
@@ -58,6 +60,13 @@ final class SqlConfiguratorImpl implements SqlConfigurator {
     return this;
   }
 
+  @Override
+  public @NotNull SqlConfigurator configureSessionFactory(
+      Consumer<SessionFactoryBuilder> configurator) {
+    this.sessionFactoryConfigurator = configurator;
+    return this;
+  }
+
   ConfigPath configPath() {
     return configPath;
   }
@@ -76,5 +85,9 @@ final class SqlConfiguratorImpl implements SqlConfigurator {
 
   Consumer<MetadataBuilder> metadataConfigurator() {
     return requireNonNullElse(metadataConfigurator, emptyConfigurator());
+  }
+
+  Consumer<SessionFactoryBuilder> sessionFactoryConfigurator() {
+    return requireNonNullElse(sessionFactoryConfigurator, emptyConfigurator());
   }
 }

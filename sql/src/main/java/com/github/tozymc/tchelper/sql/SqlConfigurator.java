@@ -4,6 +4,7 @@ import com.github.tozymc.tchelper.path.ConfigPath;
 import java.util.function.Consumer;
 import org.hibernate.boot.MetadataBuilder;
 import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.SessionFactoryBuilder;
 import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.Contract;
@@ -30,4 +31,6 @@ public sealed interface SqlConfigurator permits SqlConfiguratorImpl {
   @NotNull SqlConfigurator configureMetadataSources(Consumer<MetadataSources> configurator);
 
   @NotNull SqlConfigurator configureMetadata(Consumer<MetadataBuilder> configurator);
+
+  @NotNull SqlConfigurator configureSessionFactory(Consumer<SessionFactoryBuilder> configurator);
 }
