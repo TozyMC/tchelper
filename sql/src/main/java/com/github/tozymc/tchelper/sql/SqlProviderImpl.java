@@ -3,7 +3,6 @@ package com.github.tozymc.tchelper.sql;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.github.tozymc.tchelper.path.ConfigPath;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,23 +10,28 @@ import org.slf4j.LoggerFactory;
 class SqlProviderImpl implements SqlProvider {
   static final Logger LOGGER = LoggerFactory.getLogger("original-storage");
 
-  private final ConfigPath globalStorageConfigPath;
+  private final SqlConfiguratorImpl sqlConfigurator;
 
-  SqlProviderImpl(ConfigPath globalStorageConfigPath) {
-    this.globalStorageConfigPath = globalStorageConfigPath;
+  SqlProviderImpl(SqlConfigurator sqlConfigurator) {
+    this.sqlConfigurator = (SqlConfiguratorImpl) sqlConfigurator;
   }
 
   @Override
   public @NotNull Sql get() {
-    return get(globalStorageConfigPath);
+    return get(sqlConfigurator);
   }
 
   @Override
   public @NotNull Sql get(@NotNull ConfigPath configPath) {
     checkNotNull(configPath, "configPath");
-    var builder = new StandardServiceRegistryBuilder().loadProperties(configPath.toPath().toFile());
-    var sql = new SqlImpl(builder.build());
-    sql.connect();
-    return sql;
+    return get(SqlConfigurator.configurator(configPath));
+  }
+
+  @Override
+  public @NotNull Sql get(@NotNull SqlConfigurator configurator) {
+    checkNotNull(configurator, "configurator");
+    var casted = (SqlConfiguratorImpl) configurator;
+    checkNotNull(casted.configPath(), "configPath");
+    return new SqlImpl(casted);
   }
 }
