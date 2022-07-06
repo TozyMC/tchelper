@@ -32,6 +32,8 @@ class SqlProviderImpl implements SqlProvider {
     checkNotNull(configurator, "configurator");
     var casted = (SqlConfiguratorImpl) configurator;
     checkNotNull(casted.configPath(), "configPath");
-    return new SqlImpl(casted);
+    var sql = new SqlImpl(casted);
+    sql.connect();
+    return sql;
   }
 }
