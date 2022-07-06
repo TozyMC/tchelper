@@ -10,7 +10,7 @@ import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.NotNull;
 
-class SqlConfiguratorImpl implements SqlConfigurator {
+final class SqlConfiguratorImpl implements SqlConfigurator {
   private static final Consumer<?> EMPTY_CONFIGURATOR = ignored -> {};
 
   private ConfigPath configPath;

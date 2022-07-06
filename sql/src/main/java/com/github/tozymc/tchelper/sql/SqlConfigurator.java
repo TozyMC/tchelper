@@ -9,7 +9,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-public interface SqlConfigurator {
+public sealed interface SqlConfigurator permits SqlConfiguratorImpl {
   static @NotNull SqlConfigurator configurator(@NotNull ConfigPath configPath) {
     return new SqlConfiguratorImpl().configPath(configPath);
   }
